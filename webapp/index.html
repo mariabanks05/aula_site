@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AulaSite - App Web Mobile</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="hello">Olá, funcionário</p>
+          <h1>Peça agora</h1>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="search-section">
+          <input id="searchInput" type="search" placeholder="Buscar no cardápio" />
+        </section>
+
+        <section class="cards-row">
+          <button class="card-button active" data-tab="buscar">Buscar</button>
+          <button class="card-button" data-tab="pedidos">Pedidos</button>
+          <button class="card-button" data-tab="perfil">Perfil</button>
+        </section>
+
+        <section id="homeView" class="section home-view">
+          <div class="section-title">
+            <h2>Cardápio</h2>
+            <span>Últimos lançamentos</span>
+          </div>
+
+          <div id="itemsList" class="items-list"></div>
+        </section>
+
+        <section id="ordersView" class="section hidden">
+          <h2>Meus Pedidos</h2>
+          <p>Aqui você verá os pedidos recentes e o status.</p>
+        </section>
+
+        <section id="profileView" class="section hidden">
+          <h2>Perfil</h2>
+          <p>Gerencie suas informações e acesse o histórico.</p>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
