@@ -10,7 +10,7 @@
     <div class="app-shell">
       <header class="topbar">
         <div>
-          <p class="hello">Olá, funcionário</p>
+          <p class="hello">Bem-vindo!</p>
           <h1>Peça agora</h1>
         </div>
       </header>
@@ -21,12 +21,51 @@
         </section>
 
         <section class="cards-row">
-          <button class="card-button active" data-tab="buscar">Buscar</button>
+          <button class="card-button active" data-tab="inicio">Início</button>
+          <button class="card-button" data-tab="buscar">Buscar</button>
           <button class="card-button" data-tab="pedidos">Pedidos</button>
           <button class="card-button" data-tab="perfil">Perfil</button>
         </section>
 
-        <section id="homeView" class="section home-view">
+        <section id="homeView" class="section home-welcome">
+          <div class="promo-banner">
+            <p class="promo-text">🎉 Bem-vindo! Aproveite 10% de desconto na primeira compra</p>
+          </div>
+
+          <div class="restaurant-info">
+            <h3>Sobre o Restaurante</h3>
+            <div class="info-grid">
+              <div class="info-item">
+                <span class="info-icon">🕒</span>
+                <p><strong>Horário</strong><br>11h - 23h</p>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">📍</span>
+                <p><strong>Local</strong><br>Rua Principal, 123</p>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">⭐</span>
+                <p><strong>Avaliação</strong><br>4.8 / 5.0</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="categories-section">
+            <h3>Categorias Populares</h3>
+            <div class="categories-grid" id="categoriesGrid"></div>
+          </div>
+
+          <div class="highlights-section">
+            <h3>Destaques do Dia</h3>
+            <div class="highlights-list" id="highlightsList"></div>
+          </div>
+
+          <div class="start-order-btn-container">
+            <button class="start-order-btn" id="startOrderBtn">Começar um Pedido</button>
+          </div>
+        </section>
+
+        <section id="searchView" class="section home-view">
           <div class="section-title">
             <h2>Cardápio</h2>
             <span>Últimos lançamentos</span>
@@ -41,8 +80,74 @@
         </section>
 
         <section id="profileView" class="section hidden">
-          <h2>Perfil</h2>
-          <p>Gerencie suas informações e acesse o histórico.</p>
+          <div class="profile-header">
+            <div class="profile-avatar" id="profileAvatar">M</div>
+            <h2 id="profileName">Seu Nome</h2>
+            <p id="profilePhone" class="profile-phone">(00) 00000-0000</p>
+          </div>
+
+          <div class="profile-section">
+            <h3>Informações Pessoais</h3>
+            <button class="edit-profile-btn" id="editProfileBtn">Editar Perfil</button>
+          </div>
+
+          <form id="editProfileForm" class="profile-form hidden">
+            <div class="form-group">
+              <label for="editName">Nome Completo</label>
+              <input type="text" id="editName" name="name" placeholder="Digite seu nome" />
+            </div>
+            <div class="form-group">
+              <label for="editPhone">Telefone</label>
+              <input type="tel" id="editPhone" name="phone" placeholder="(00) 00000-0000" />
+            </div>
+            <div class="form-actions">
+              <button type="button" class="cancel-btn" id="cancelEditBtn">Cancelar</button>
+              <button type="submit" class="save-btn">Salvar</button>
+            </div>
+          </form>
+
+          <div class="profile-section">
+            <h3>Histórico de Pedidos</h3>
+            <div id="orderHistory" class="order-history">
+              <p class="empty-message">Nenhum pedido realizado ainda.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="deliveryView" class="section hidden">
+          <h2>Informações de Entrega</h2>
+          <form id="deliveryForm" class="delivery-form">
+            <div class="form-group">
+              <label for="customerName">Nome Completo</label>
+              <input type="text" id="customerName" name="name" required placeholder="Digite seu nome" />
+            </div>
+            <div class="form-group">
+              <label for="customerAddress">Endereço</label>
+              <input type="text" id="customerAddress" name="address" required placeholder="Rua, número, complemento" />
+            </div>
+            <div class="form-group">
+              <label for="customerPhone">Telefone</label>
+              <input type="tel" id="customerPhone" name="phone" required placeholder="(00) 00000-0000" />
+            </div>
+            <div class="form-actions">
+              <button type="button" class="back-btn" id="backToCart">Voltar</button>
+              <button type="submit" class="submit-btn">Finalizar</button>
+            </div>
+          </form>
+        </section>
+
+        <section id="confirmationView" class="section hidden">
+          <div class="confirmation-container">
+            <div class="confirmation-icon">✓</div>
+            <h2>Pedido Finalizado!</h2>
+            <p class="confirmation-message">Seu pedido foi recebido com sucesso.</p>
+            <div class="confirmation-details">
+              <p><strong>Número do Pedido:</strong> <span id="orderNumber">#1001</span></p>
+              <p><strong>Entrega em:</strong> <span id="deliveryAddress"></span></p>
+            </div>
+            <p class="confirmation-thanks">Obrigado por sua compra!</p>
+            <button type="button" class="home-btn" id="backToHome">Voltar ao Cardápio</button>
+          </div>
         </section>
       </main>
     </div>
